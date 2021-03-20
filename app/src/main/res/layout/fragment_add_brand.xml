@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddBrand.AddBrandFragment"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/etBrandName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Brand Name" />
+
+<!--    <Button-->
+<!--        android:id="@+id/btnSelectLogo"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Button" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ivDisplayLogo"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:src="@tools:sample/avatars" />-->
+
+    <Button
+        android:id="@+id/btnSaveBrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Brand" />
+</LinearLayout>
