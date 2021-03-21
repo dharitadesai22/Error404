@@ -1,6 +1,7 @@
 package com.example.inventory.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.inventory.ProductDetails;
 import com.example.inventory.R;
 import com.example.inventory.models.Product;
 
@@ -40,6 +42,8 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.viewHold
             @Override
             public void onClick(View v) {
                 Toast.makeText(ctx, arrayList.get(position).getName(), Toast.LENGTH_SHORT).show();
+                v.getContext().startActivity(new Intent(v.getContext(), ProductDetails.class)
+                        .putExtra("ID", arrayList.get(position).getID()).putExtra("brand", arrayList.get(position).getBrand()));
             }
         });
     }

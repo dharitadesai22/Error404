@@ -37,6 +37,7 @@ public class HomeFragment extends Fragment {
         rvBrands = view.findViewById(R.id.rvBrands);
         rvBrands.setLayoutManager(new LinearLayoutManager(getContext()));
         reference = FirebaseDatabase.getInstance().getReference("brands");
+        reference.keepSynced(true);
         arrayList = new ArrayList<>();
 
         reference.addValueEventListener(new ValueEventListener() {
