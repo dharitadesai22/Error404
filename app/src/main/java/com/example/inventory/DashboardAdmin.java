@@ -1,15 +1,18 @@
 package com.example.inventory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
 import com.example.inventory.ui.AddBrand.AddBrandFragment;
+import com.example.inventory.ui.AddProduct.AddProductsFragment;
 import com.example.inventory.ui.home.HomeFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -27,6 +30,7 @@ public class DashboardAdmin extends AppCompatActivity implements NavigationView.
     private AppBarConfiguration mAppBarConfiguration;
     DrawerLayout drawer;
     NavigationView navigationView;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +38,11 @@ public class DashboardAdmin extends AppCompatActivity implements NavigationView.
         setContentView(R.layout.activity_dashboard_admin);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
 
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -50,23 +54,14 @@ public class DashboardAdmin extends AppCompatActivity implements NavigationView.
                     new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
-
-
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-//                .setDrawerLayout(drawer)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.dashboard_admin, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.dashboard_admin, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -87,10 +82,17 @@ public class DashboardAdmin extends AppCompatActivity implements NavigationView.
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
 
-//            case R.id.nav_Add_Product:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new AddProductFragment()).commit();
-//                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-//                break;
+            case R.id.nav_Add_Product:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new AddProductsFragment()).commit();
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                break;
+
+            case R.id.nav_signout:
+                firebaseAuth.signOut();
+                Intent i = new Intent(this,MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                return true;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
