@@ -7,24 +7,35 @@
     tools:context=".ProductDetails"
     android:orientation="vertical">
 
+    //
+
+    //
+
     <Button
+        android:id="@+id/btn_generation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:text="display barcode"
-        android:id="@+id/btn_generation"
+        android:background="@drawable/custom_btn"
+        android:layout_margin="20dp"
+
         />
     <ImageView
         android:id="@+id/ivBarcode"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         tools:srcCompat="@drawable/ic_launcher_background" />
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
+
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -39,6 +50,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="10dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -58,6 +71,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="10dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -77,6 +92,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="10dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -96,6 +113,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="10dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -109,6 +128,6 @@
             android:id="@+id/tvDisplayDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description" />
+            android:hint="Description:" />
     </LinearLayout>
 </LinearLayout>
