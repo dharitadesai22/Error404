@@ -7,10 +7,16 @@
     tools:context=".ProductDetails"
     android:orientation="vertical">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="display barcode"
+        android:id="@+id/btn_generation"
+        />
     <ImageView
         android:id="@+id/ivBarcode"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         tools:srcCompat="@drawable/ic_launcher_background" />
 
     <LinearLayout
